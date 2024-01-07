@@ -1,6 +1,20 @@
 alias btw=neofetch
 alias uaur=aur-check-updates
-alias ls=lsd
+alias ls='lsd --group-dirs first'
 alias lk=/usr/bin/ls
 alias tn="tmux new -s $(pwd | sed 's/.*\///g')"
 
+alias pacerror="sudo pacman -Dk"
+alias ncdur="ncdu / --exclude /mnt --exclude /home --exclude /run"
+alias rtop="radeontop -c"
+
+alias xall="xhost +si:localuser:$USER"
+alias mrrank="rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist"
+
+alias mkinitimg="sudo mkinitcpio -p linux"
+alias cfgrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+alias zconfig="source ~/.zshrc"
+alias ..="cd .."
+alias ...="cd ../.."
+alias .="pwd"
