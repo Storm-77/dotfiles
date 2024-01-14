@@ -1,8 +1,10 @@
 alias btw=neofetch
-alias uaur=aur-check-updates
+alias caur=aur-check-updates
+alias uaur="yay -Syu --aur"
+alias lsaur="pacman -Qm"
+
 alias ls='lsd --group-dirs first'
 alias lk=/usr/bin/ls
-alias tn="tmux new -s $(pwd | sed 's/.*\///g')"
 
 alias pacerror="sudo pacman -Dk"
 alias ncdur="ncdu / --exclude /mnt --exclude /home --exclude /run"

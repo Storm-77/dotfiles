@@ -1,0 +1,13 @@
+#! /bin/sh
+
+chosen=$(printf "  Power Off\n  Restart\n  Sleep\n  Log Out\n  Lock" | wofi --show dmenu --lines 7 --prompt "Pick a power action" -W 200)
+
+case "$chosen" in
+	"  Power Off") poweroff ;;
+	"  Restart") reboot ;;
+	"  Sleep") systemctl suspend ;;
+#	"  Hibernate") systemctl hibernate ;;
+	"  Log Out") hyprctl dispatch exit ;;
+	"  Lock") swaylock ;;
+	*) exit 1 ;;
+esac
