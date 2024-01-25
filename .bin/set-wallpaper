@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Specify the path to your JSON file
+json_file="$HOME/.wallpaper.json"
+
+if [ ! -f "$json_file" ]; then
+    exec random-wallpaper 
+fi
+
+processes=$(procs swaybg --no-header | wc -l)
+number=$((processes))
+
+if [ $number -gt 0 ]; then
+	killall swaybg
+fi
+
+
+# Loop through each object in the JSON array
+jq -c '.[]' "$json_file" | while read -r obj; do
+    monitor=$(echo "$obj" | jq -r '.monitor')
+    image=$(echo "$obj" | jq -r '.image')
+
+    swaybg -o $monitor -i $WALLPAPER_DIR/$image &
+done
+

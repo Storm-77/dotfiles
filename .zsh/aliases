@@ -2,6 +2,8 @@ alias btw=neofetch
 alias caur=aur-check-updates
 alias uaur="yay -Syu --aur"
 alias lsaur="pacman -Qm"
+alias cat=bat
+alias grep=rg
 
 alias ls='lsd --group-dirs first'
 alias lk=/usr/bin/ls
@@ -19,4 +21,4 @@ alias cfgrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias zconfig="source ~/.zshrc"
 alias ..="cd .."
 alias ...="cd ../.."
-alias .="pwd"
+alias .=pwd

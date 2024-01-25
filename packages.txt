@@ -1,0 +1,8 @@
+procs
+swaybg
+slurp
+grim
+wofi
+wl-clipboard
+swappy
+mako
