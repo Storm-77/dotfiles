@@ -24,6 +24,7 @@ style = "Regular"
 
 [window]
 startup_mode = "Windowed"
+opacity = 0.85
 
 [window.padding]
 x = 4

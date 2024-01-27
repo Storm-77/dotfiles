@@ -75,3 +75,6 @@ background-color=#33FF33
 default-timeout=800
 background-color=#FF3388
 
+[app-name=screenshot]
+default-timeout=2000
+background-color=#5045a5
