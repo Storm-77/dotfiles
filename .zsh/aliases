@@ -2,6 +2,8 @@ alias btw=neofetch
 alias caur=aur-check-updates
 alias uaur="yay -Syu --aur"
 alias lsaur="pacman -Qm"
+alias lsorphans="pacman -Qtdq"
+alias rmorphans="lsorphans | sudo pacman -Rns -"
 alias cat=bat
 alias grep=rg
 
@@ -22,3 +24,5 @@ alias zconfig="source ~/.zshrc"
 alias ..="cd .."
 alias ...="cd ../.."
 alias .=pwd
+
+alias extract="unp -U"

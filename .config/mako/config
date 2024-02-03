@@ -78,3 +78,9 @@ background-color=#FF3388
 [app-name=screenshot]
 default-timeout=2000
 background-color=#5045a5
+
+[app-name=clock]
+default-timeout=1500
+background-color=#649ee0
+anchor=center
+margin=0,0,300
