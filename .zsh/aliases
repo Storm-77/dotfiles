@@ -6,6 +6,7 @@ alias lsorphans="pacman -Qtdq"
 alias rmorphans="lsorphans | sudo pacman -Rns -"
 alias cat=bat
 alias grep=rg
+alias lg=lazygit
 
 alias ls='lsd --group-dirs first'
 alias lk=/usr/bin/ls

@@ -1,8 +1,5 @@
 #! /bin/bash
 
-monitors=/tmp/hypr/monitors_temp
-hyprctl monitors > $monitors
-
 if source $HOME/.wksconfig > /dev/null 2>&1 ; then
   echo # ok, variable sourced
 else
@@ -11,7 +8,8 @@ else
 fi
 
 if [[ -z $1 ]]; then
-  workspace=$(grep -B 5 "focused: no" "$monitors" | awk 'NR==1 {print $3}')
+  echo "Missing workspace number";
+  exit 1;
 else
   workspace=$1
 fi
@@ -38,12 +36,13 @@ workspace_number_parsed=$(("10#$workspace"));
 # get the monitor name where target workspace is focused, if its empty do not swap
 monitor_with_desiered_workspace=$(hyprctl monitors -j | jq --arg num "$workspace_number_parsed" 'map(select(.focused == false and .activeWorkspace.name == $num)) | .[] | .name')
 
-activemonitor=$(grep -B 11 "focused: yes" "$monitors" | awk 'NR==1 {print $2}')
+mon=$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .name')
+activemonitor=${mon//\"/}
 
 if [[ ${#monitor_with_desiered_workspace} -ne 0 ]]; then
-  hyprctl dispatch swapactiveworkspaces ${monitor_with_desiered_workspace//\"/} $activemonitor
+  hyprctl dispatch swapactiveworkspaces ${monitor_with_desiered_workspace//\"/} $activemonitor > /dev/null
 else
-  hyprctl dispatch moveworkspacetomonitor $workspace_number_parsed $activemonitor && hyprctl dispatch workspace $workspace_number_parsed
+  hyprctl dispatch moveworkspacetomonitor $workspace_number_parsed $activemonitor  > /dev/null 2>&1 && hyprctl dispatch workspace $workspace_number_parsed > /dev/null
 fi
 
 notify-send  -a workspace_change "Workspace $workspace_number_parsed"
