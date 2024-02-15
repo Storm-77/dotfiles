@@ -1,1 +1,1 @@
-zoxide woff-fira-code tmux 
+zoxide woff-fira-code tmux jq go ripgrep 

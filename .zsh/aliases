@@ -27,3 +27,4 @@ alias ...="cd ../.."
 alias .=pwd
 
 alias extract="unp -U"
+alias fa="alias | fzf | cut -d '=' -f 1"
