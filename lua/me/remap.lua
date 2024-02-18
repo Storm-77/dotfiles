@@ -20,5 +20,5 @@ vim.keymap.set({"n","v"}, "<leader>p", [["+p]])
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-
+vim.api.nvim_set_keymap('n', '<leader>q', ':b#<CR>', { noremap = true, silent = true })
 
