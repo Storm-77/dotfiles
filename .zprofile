@@ -4,6 +4,8 @@ export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # ~/.bin
 export PATH=$HOME/.bin:$PATH
+# ~/.cargo/bin
+export PATH=$HOME/.cargo/bin:$PATH
 
 export T_REPOS_DIR=$HOME/repos
 
