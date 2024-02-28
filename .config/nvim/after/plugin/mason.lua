@@ -37,3 +37,6 @@ require("lspconfig").astro.setup{
 require("lspconfig").ast_grep.setup{
     on_attach = on_attach
 }
+require("lspconfig").gopls.setup{
+    on_attach = on_attach
+}
