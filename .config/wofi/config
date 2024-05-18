@@ -1,0 +1,10 @@
+term=alacritty
+location=top
+yoffset=180
+
+prompt=
+insensitive=true
+hide_scroll=true
+
+always_parse_args=true
+show_all=true

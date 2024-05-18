@@ -27,7 +27,7 @@ text-color=#ffffff
 
 [urgency=normal]
 default-timeout=8000
-background-color=#161616
+background-color=#4DB273
 border-color=#565656
 text-color=#ffffff
 on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message-new-instant.oga
@@ -69,11 +69,11 @@ format=%s\n%b
 
 [app-name=workspace_change]
 default-timeout=800
-background-color=#33FF33
+background-color=#4DB273
 
 [app-name=workspace_notify]
 default-timeout=800
-background-color=#FF3388
+background-color=#4D5AB2
 
 [app-name=screenshot]
 default-timeout=2000
@@ -81,7 +81,9 @@ background-color=#5045a5
 
 [app-name=clock]
 default-timeout=1500
-background-color=#649ee0
+font=SF Pro Display
+background-color=#4D5AB2
+border-color=#B24D8C
 anchor=center
 margin=0,0,300
 

@@ -1,41 +1,57 @@
-window {
-margin: 0px;
-border: 1px solid #88c0d0;
-background-color: #2e3440;
-font-size:14dp;
-font-weight:500;
+* {
+    font-family: 'SF Pro Display';
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+#window {
+    margin: 0px;
+    border: 0.0px solid;
+    border-color: rgb(235, 77, 129);
+    border-radius: 10px;
+    background-color: #4D5AB2;
+    /*background-color: #7D5FA0;*/
+    color:  #f1f1f1;
 }
 
 #input {
-margin: 5px;
-border: none;
-color: #d8dee9;
-background-color: #3b4252;
-}
-
-#inner-box {
-margin: 5px;
-border: none;
-background-color: #2e3440;
-}
-
-#outer-box {
-margin: 5px;
-border: none;
-background-color: #2e3440;
+    margin: 15px;
+    background-color: rgb(112, 122, 137);
+    color: rgb(37, 38, 51);
+    border-radius: 25px;
+    border: 2px solid rgb(52, 64, 76);
 }
 
 #scroll {
-margin: 0px;
-border: none;
+    margin-bottom: 15px;
 }
 
-#text {
-margin: 5px;
-border: none;
-color: #d8dee9;
+#entry {
+    margin: 0px 15px;
 }
 
 #entry:selected {
-background-color: #3b4252;
+    /*background-color: /*rgb(245, 98, 36);*/
+    background-color: #4DB273;
+    border-radius: 0px;
+    border: none;
+    outline: none;
+}
+
+#entry > box {
+    margin-left: 16px;
+}
+
+#entry image {
+    padding-right: 10px;
+}
+
+#colors {
+    color: rgb(37, 38, 51);
+    color: rgb(52, 64, 76);
+    color: rgb(76, 90, 107);
+    color: rgb(112, 122, 137);
+    color: rgb(235, 77, 129);
+    color: rgb(245, 98, 36);
 }
