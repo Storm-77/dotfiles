@@ -40,3 +40,7 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
 bindkey -v
+
+ for bind in ~/.zsh/binds/*; do
+   source $bind
+ done

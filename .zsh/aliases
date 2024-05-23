@@ -34,3 +34,6 @@ alias .=pwd
 
 alias extract="unp -U"
 alias fa="alias | fzf | cut -d '=' -f 1"
+
+alias sdkc="sdk current"
+alias astd="/opt/android-studio/bin/studio.sh . > /dev/null 2>&1 &"

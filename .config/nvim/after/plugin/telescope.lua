@@ -15,7 +15,6 @@ end)
 
 vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
 
-require("telescope").load_extension("noice")
 local harpoon = require("telescope").load_extension("harpoon")
 
 vim.keymap.set('n', '<leader>pe', harpoon.marks, {})
