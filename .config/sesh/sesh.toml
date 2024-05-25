@@ -1,9 +1,14 @@
+import = ["~/sesh.local.toml"]
+
 [[session]]
 name = "Downloads 📥"
 path = "~/Downloads"
 
 [[session]]
-name = "dotfiles"
+name = "_dotfiles"
 path = "~/.dotfiles"
-startup_command = "nvim . -c ':Telescope git_files'"
+startup_command = "tmuxifier w repo"
 
+[[session]]
+name = "main"
+path = "~"

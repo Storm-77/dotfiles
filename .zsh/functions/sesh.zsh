@@ -1,6 +1,10 @@
 ta() {
     if [ -z "${1+x}" ]; then
+        if [ $(pwd) = "$HOME" ]; then
+            sesh connect main
+      else
         sesh connect .
+      fi
     else
         sesh connect $1
     fi
