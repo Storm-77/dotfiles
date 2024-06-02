@@ -6,3 +6,14 @@ wofi
 wl-clipboard
 swappy
 mako
+
+go
+ go->sesh
+
+yay
+
+nvim
+tmux
+fd
+zoxide
+timeshift 

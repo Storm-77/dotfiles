@@ -1,0 +1,6 @@
+packages.txt
+^.git*
+.gitignore
+.gitmodules
+LICENSE
+^.*\.md$

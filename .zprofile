@@ -13,3 +13,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export REPOS_DIR=$HOME/repos
 
 export TMUXIFIER_LAYOUT_PATH="$HOME/.dotfiles/.tmux/layouts"
+
+
+# other app globals
+export VAGRANT_DEFAULT_PROVIDER=libvirt
+

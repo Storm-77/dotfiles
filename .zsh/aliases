@@ -32,7 +32,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias .=pwd
 
-alias extract="unp -U"
+alias extract="unp -Ua"
 alias fa="alias | fzf | cut -d '=' -f 1"
 
 alias sdkc="sdk current"

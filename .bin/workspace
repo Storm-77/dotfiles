@@ -45,6 +45,5 @@ else
   hyprctl dispatch moveworkspacetomonitor $workspace_number_parsed $activemonitor  > /dev/null 2>&1 && hyprctl dispatch workspace $workspace_number_parsed > /dev/null
 fi
 
-notify-send  -a workspace_change "Workspace $workspace_number_parsed"
 exit 0
 
