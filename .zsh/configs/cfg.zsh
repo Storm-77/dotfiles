@@ -2,8 +2,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-export HISTFILESIZE=1000000000
-export HISTSIZE=1000000000
+export HISTFILESIZE=50000
+export HISTSIZE=500000
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh

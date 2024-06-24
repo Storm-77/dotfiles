@@ -1,7 +1,7 @@
 require("mason").setup();
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "tsserver", "clangd", "volar" }
+    ensure_installed = { "lua_ls", "tsserver", "clangd", "volar", "emmet_ls" }
 });
 
 local on_attach = function()
@@ -16,14 +16,33 @@ local on_attach = function()
 end
 
 require("mason-lspconfig").setup_handlers {
+
     function(server_name) -- handler for every server
         require("lspconfig")[server_name].setup {
             on_attach = on_attach
         }
     end,
-    -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
-    --["rust_analyzer"] = function ()
-    --    require("rust-tools").setup {}
-    -- end
+
+    ["emmet_ls"] = function()
+        require("lspconfig").emmet_ls.setup {
+            on_attach = on_attach,
+            filetypes = { "html", "css", "php" },
+        }
+    end,
+
+    ["intelephense"] = function()
+        require("lspconfig").intelephense.setup {
+            on_attach = on_attach,
+            settings = {
+                intelephense = {
+                    stubs = {
+                        'wordpress',
+                    },
+                    environment = {
+                        includePaths = '$HOME/.config/composer/vendor/php-stubs/'
+                    }
+                }
+            }
+        }
+    end
 }
