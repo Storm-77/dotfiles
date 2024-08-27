@@ -24,5 +24,7 @@ vim.api.nvim_set_keymap('n', '<leader>q', ':b#<CR>', { noremap = true, silent = 
 
 vim.api.nvim_set_keymap('n', '<S-U>', '<Cmd>redo<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('i', '<C-c>', '<Esc><Esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true })
 
+
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })

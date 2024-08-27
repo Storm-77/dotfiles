@@ -7,6 +7,7 @@ conform.setup({
         python = { "isort", "black" },
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
+        astro = { { "prettierd", "prettier" } },
     },
 })
 
