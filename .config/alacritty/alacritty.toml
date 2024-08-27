@@ -23,7 +23,7 @@ family = "Fira Code"
 style = "Regular"
 
 [window]
-startup_mode = "Windowed"
+startup_mode = "Maximized"
 opacity = 0.85
 
 [window.padding]
