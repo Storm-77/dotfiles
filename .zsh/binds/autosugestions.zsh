@@ -1,4 +1,4 @@
-bindkey '^a' autosuggest-accept
+bindkey '^s' autosuggest-accept
 bindkey '^f' forward-word
 bindkey '^ ' autosuggest-fetch
 

@@ -37,3 +37,8 @@ alias fa="alias | fzf | cut -d '=' -f 1"
 
 alias sdkc="sdk current"
 alias astd="/opt/android-studio/bin/studio.sh . > /dev/null 2>&1 &"
+
+alias cp="cp -vi"
+alias mv="mv -vi"
+
+alias cpv="rsync -avh --info=progress2"
