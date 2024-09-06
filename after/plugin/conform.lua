@@ -8,6 +8,12 @@ conform.setup({
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
         astro = { { "prettierd", "prettier" } },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+        objc = { "clang_format" },
+        objcpp = { "clang_format" },
+        cuda = { "clang_format" },
+        proto = { "clang_format" },
     },
 })
 

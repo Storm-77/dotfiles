@@ -13,6 +13,7 @@ local on_attach = function()
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
     vim.keymap.set("n", "gf", require("telescope.builtin").lsp_references, {})
     vim.keymap.set("n", "K", vim.lsp.buf.definition, {})
+    vim.keymap.set("n", "R", vim.lsp.buf.rename, {})
 end
 
 require("mason-lspconfig").setup_handlers {
