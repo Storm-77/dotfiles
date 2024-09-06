@@ -3,7 +3,7 @@ alias caur=aur-check-updates
 alias uaur="yay -Syu --aur"
 alias lsaur="pacman -Qm"
 alias pacorph="pacman -Qtdq"
-alias pacorphrm="lsorphans | sudo pacman -Rns -"
+alias pacorphrm="pacorph | sudo pacman -Rns -"
 alias cat=bat
 alias grep=rg
 alias lg=lazygit
@@ -42,3 +42,6 @@ alias cp="cp -vi"
 alias mv="mv -vi"
 
 alias cpv="rsync -avh --info=progress2"
+
+alias myip="curl ifconfig.me"
+alias dff="df -h -x tmpfs -x efivarfs"

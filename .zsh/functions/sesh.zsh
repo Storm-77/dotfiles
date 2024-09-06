@@ -11,14 +11,6 @@ ta() {
 
 }
 
-rcl(){
-
-    if [ -n "${1+x}" ]; then
-        sesh clone -d $REPOS_DIR $1
-    else
-        echo "No repo link provided"
-    fi
-}
 
 t(){
     if [ -n "${1+x}" ]; then
