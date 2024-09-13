@@ -1,0 +1,72 @@
+- import_playbook: install-yay.yaml
+
+- name: Install ansible modules to manage aur packages
+  hosts: localhost
+  connection: local 
+
+  tasks:
+    - name: Install modules from requirements.yaml
+      community.general.ansible_galaxy_install:
+        type: both
+        requirements_file: requirements.yaml
+
+- name: "Install all programs I use"
+  collections:
+    - community.general
+    - kewlfft.aur
+
+  hosts: localhost
+  connection: local 
+
+  tasks:
+    - name: Upgrade pacman repos
+      pacman:
+        update_cache: true
+      become: true
+
+    - name: Install packages from official repos
+      become: true
+      pacman:
+          name: 
+            - zoxide
+            - neovim
+            - tmux
+            - fd
+            - bat
+            - htop
+            - timeshift
+            - stow
+            - git
+            - base-devel
+            - fzf
+            - ripgrep
+            - lazygit
+            - fastfetch
+            - lsd
+            - yazi
+            - alacritty 
+            - ncdu
+            - unp
+            - curl
+            - chromium
+          state: present
+
+    - name: Install fonts from official repos
+      pacman:
+        name:
+          - ttf-font-awesome
+          - ttf-jetbrains-mono
+          - ttf-jetbrains-mono-nerd
+          - adobe-source-sans-fonts
+          - powerline-fonts 
+          - awesome-terminal-fonts
+        state: present
+
+    - name: Install programs from aur
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - otf-apple-fonts
+          - librewolf-bin
+          - downgrade
+          - rate-mirrors-bin

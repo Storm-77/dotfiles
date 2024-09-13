@@ -1,0 +1,3 @@
+export KEYTIMEOUT=1
+export NIXPKGS_ALLOW_UNFREE=1
+

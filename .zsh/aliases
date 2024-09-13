@@ -1,4 +1,4 @@
-alias btw=neofetch
+alias btw=fastfetch
 alias caur=aur-check-updates
 alias uaur="yay -Syu --aur"
 alias lsaur="pacman -Qm"
@@ -45,3 +45,4 @@ alias cpv="rsync -avh --info=progress2"
 
 alias myip="curl ifconfig.me"
 alias dff="df -h -x tmpfs -x efivarfs"
+alias gcnix="sudo nix-collect-garbage -d"

@@ -1,0 +1,41 @@
+- name: Install yay AUR helper
+  hosts: localhost
+  connection: local 
+
+  tasks:
+    - name: Installer 
+      block:
+        - name: Check if yay is already installed
+          command: yay --version
+          register: yay_installed
+          ignore_errors: true
+
+        - name: Install base-devel group and git
+          become: true
+          pacman:
+            name:
+              - base-devel
+              - git
+              - go
+            state: present
+          when: yay_installed.rc != 0  # Only install dependencies if yay is not installed
+
+        - name: Clone yay repository
+          git:
+            repo: https://aur.archlinux.org/yay.git
+            dest: /tmp/yay
+          when: yay_installed.rc != 0  # Only clone if yay is not installed
+
+        - name: Build and install yay
+          command: makepkg -si --noconfirm
+          args:
+            chdir: /tmp/yay
+          when: yay_installed.rc != 0  # Only build and install if yay is not installed
+
+      always:
+        - name: Clean up yay source directory
+          file:
+            path: /tmp/yay
+            state: absent
+          when: yay_installed.rc != 0  # Clean up only if yay was installed
+
