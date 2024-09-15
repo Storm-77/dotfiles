@@ -13,3 +13,7 @@ pacrema-recurs(){
     # use with caution
     pacman -Q | fzf | awk '{print $1}' | xargs -o -r sudo pacman -Rcs
 }
+
+pacfindf(){
+    whence -pm '*' | fzf | xargs -o -r pacman -Qo
+}

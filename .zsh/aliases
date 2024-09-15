@@ -11,7 +11,7 @@ alias nv="nvim ."
 alias pacfetch="sudo pacman -Syy"
 alias pacup="sudo pacman -Su"
 alias pacfind="pacman -Qet | fzf"
-alias pacfindall="pacman -Q | fzf"
+alias pacfinda="pacman -Q | fzf"
 alias kernel="uname -sr"
 
 alias ls='lsd --group-dirs first'
