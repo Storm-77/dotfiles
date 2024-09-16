@@ -1,4 +1,7 @@
-import = ["/home/mikolaj/.config/alacritty/themes/themes/omni.toml", "/home/mikolaj/.config/alacritty/themes/themes/blood_moon.toml"]
+import = [
+    # "/home/mikolaj/.config/alacritty/themes/themes/omni.toml",
+    "/home/mikolaj/.config/alacritty/themes/themes/blood_moon.toml"
+    ]
 
 [env]
 TERM = "xterm-256color"
