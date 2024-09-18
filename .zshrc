@@ -1,3 +1,6 @@
+# load completion scripts
+fpath=(~/.zsh/completions $fpath)
+
 # load custom executable functions
  for function in ~/.zsh/functions/*; do
    source $function

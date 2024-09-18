@@ -9,6 +9,7 @@ select_window 1
 run_cmd "nv"
 new_window "git"
 run_cmd "lg"
+new_window
 select_window 1
 
 
