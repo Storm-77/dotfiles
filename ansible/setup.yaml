@@ -48,15 +48,21 @@
             - ncdu
             - unp
             - curl
+            - zsh-syntax-highlighting
+            - zsh-autosuggestions 
+
+
             - chromium
           state: present
 
     - name: Install fonts from official repos
+      become: true
       pacman:
         name:
           - ttf-font-awesome
           - ttf-jetbrains-mono
           - ttf-jetbrains-mono-nerd
+          - ttf-fira-code 
           - adobe-source-sans-fonts
           - powerline-fonts 
           - awesome-terminal-fonts
@@ -70,3 +76,12 @@
           - librewolf-bin
           - downgrade
           - rate-mirrors-bin
+
+    - name: Creates repos directory
+      ansible.builtin.file:
+        path: $HOME/repos
+        state: directory
+
+    - name: install sesh
+      shell: go install github.com/joshmedeski/sesh@latest
+
