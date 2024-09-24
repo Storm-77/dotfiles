@@ -28,3 +28,12 @@ vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<C-c>', '<Esc>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+
+local add_to_git = function ()
+    local relPath = vim.fn.expand('%:p')  -- Get the absolute path of the current file
+    print(relPath);
+    os.execute("git add " .. relPath)
+    --print(vim.fn.expand('%'))
+end
+
+vim.keymap.set({"n"}, "<leader>g", add_to_git)

@@ -1,6 +1,6 @@
 local builtin = require('telescope.builtin')
 
-local ignore_patterns = { '.git', 'node_modules' };
+local ignore_patterns = { '.git/', 'node_modules' };
 
 vim.keymap.set('n', '<leader>pd', function()
     require('telescope.builtin').find_files({
@@ -9,14 +9,18 @@ vim.keymap.set('n', '<leader>pd', function()
     })
 end, { silent = true })
 
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-
-vim.keymap.set('n', '<leader>pa', function()
+local find_all_with_ignores = function()
     require('telescope.builtin').find_files({
         hidden = true,
         file_ignore_patterns = ignore_patterns
     })
-end, { silent = true })
+end
+
+vim.keymap.set('n', '<C-p>', function()
+    xpcall(builtin.git_files, find_all_with_ignores)
+end, {})
+
+vim.keymap.set('n', '<leader>pa', find_all_with_ignores, { silent = true })
 
 vim.keymap.set('n', '<leader>pS', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
