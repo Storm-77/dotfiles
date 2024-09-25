@@ -53,6 +53,7 @@
 
 
             - chromium
+            - mpv
           state: present
 
     - name: Install fonts from official repos
