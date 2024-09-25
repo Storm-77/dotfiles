@@ -12,8 +12,8 @@ _load_settings() {
   _dir="$1"
   if [ -d "$_dir" ]; then
     if [ -d "$_dir/pre" ]; then
-      for config in "$_dir"/pre/**/*~*.zwc(N-.); do
-        . $config
+      for config in "$_dir"/pre/**/*(N-.); do
+        source $config
       done
     fi
 
@@ -23,14 +23,14 @@ _load_settings() {
           :
           ;;
         *)
-          . $config
+          source $config
           ;;
       esac
     done
 
     if [ -d "$_dir/post" ]; then
-      for config in "$_dir"/post/**/*~*.zwc(N-.); do
-        . $config
+      for config in "$_dir"/post/**/*(N-.); do
+        source $config
       done
     fi
   fi
