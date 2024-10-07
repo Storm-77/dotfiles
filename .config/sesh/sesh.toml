@@ -18,3 +18,8 @@ path = "~"
 name = "nvim"
 path = "~/.dotfiles/.config/nvim"
 startup_command = "tmuxifier w repo"
+
+[[session]]
+name = "notes"
+path = "~/Documents/notes"
+startup_command = "nvim ."
