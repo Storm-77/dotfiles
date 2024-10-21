@@ -10,7 +10,7 @@ alias lg=lazygit
 alias nv="nvim ."
 alias pacfetch="sudo pacman -Syy"
 alias pacup="sudo pacman -Su"
-alias pacfind="pacman -Qet | fzf"
+alias pacfind="pacman -Qe | fzf"
 alias pacfinda="pacman -Q | fzf"
 alias kernel="uname -sr"
 

@@ -1,6 +1,6 @@
 pacrem(){
     # delete selected package and its dependencies that are not requiered by other packages
-    pacman -Qet | fzf | awk '{print $1}' | xargs -o -r sudo pacman -Rs
+    pacman -Qe | fzf | awk '{print $1}' | xargs -o -r sudo pacman -Rs
 }
 
 pacrema(){

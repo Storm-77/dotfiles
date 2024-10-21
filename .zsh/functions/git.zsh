@@ -43,3 +43,17 @@ rmake(){
         sesh connect $repo_path
     fi
 }
+
+ghrcl(){
+    REPO_LINK=$(gh repo list | fzf | awk '{print "https://github.com/" $1 ".git"}' | tr -d '[:blank:]')
+
+    if [[ -z "${REPO_LINK// }" ]]; then
+        echo "No repository selected";
+    else
+         if [[ " $* " == *" --bare"* ]]; then
+             rbcl $REPO_LINK
+         else
+             rcl $REPO_LINK
+         fi
+    fi
+}
