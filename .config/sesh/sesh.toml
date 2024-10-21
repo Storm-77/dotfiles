@@ -23,3 +23,8 @@ startup_command = "tmuxifier w repo"
 name = "notes"
 path = "~/Documents/notes"
 startup_command = "nvim ."
+
+[[session]]
+name = "_ssh"
+path = "~/.ssh"
+startup_command = "nvim ."
