@@ -1,7 +1,7 @@
 require("mason").setup();
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "tsserver", "clangd", "volar", "emmet_ls" }
+    ensure_installed = { "lua_ls", "ts_ls", "clangd", "volar", "emmet_ls" }
 });
 
 local on_attach = function()

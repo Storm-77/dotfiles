@@ -37,3 +37,6 @@ local add_to_git = function ()
 end
 
 vim.keymap.set({"n"}, "<leader>g", add_to_git)
+
+vim.keymap.set('n', '<leader>pl', function() local filename = vim.fn.input('New file name: '); if filename ~= '' then vim.cmd('edit ' .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':h') .. '/' .. filename) end end, { desc = "Create a new file in the same directory" })
+
