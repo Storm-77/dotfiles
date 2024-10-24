@@ -1,4 +1,4 @@
 #!/bin/bash
 
-dconf load / < dconf-settings.ini
+dconf load /org/gnome/ < gnome-settings.ini
 
