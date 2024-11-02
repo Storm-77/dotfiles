@@ -1,6 +1,7 @@
 alias btw=fastfetch
 alias caur=aur-check-updates
 alias uaur="yay -Syu --aur"
+alias ryay="yay -Sc"
 alias lsaur="pacman -Qm"
 alias pacorph="pacman -Qtdq"
 alias pacorphrm="pacorph | sudo pacman -Rns -"
