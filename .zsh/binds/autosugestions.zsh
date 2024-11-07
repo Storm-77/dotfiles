@@ -4,8 +4,8 @@ bindkey '^ ' autosuggest-fetch
 
 bindkey '^z' autosuggest-clear
 
-bindkey '^p' up-line-or-beginning-search
-bindkey '^n' down-line-or-beginning-search
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 bindkey '^X' kill-whole-line
 
