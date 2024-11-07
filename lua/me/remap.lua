@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pl", vim.cmd.Ex)
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -38,5 +38,7 @@ end
 
 vim.keymap.set({"n"}, "<leader>g", add_to_git)
 
-vim.keymap.set('n', '<leader>pl', function() local filename = vim.fn.input('New file name: '); if filename ~= '' then vim.cmd('edit ' .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':h') .. '/' .. filename) end end, { desc = "Create a new file in the same directory" })
+vim.keymap.set('n', '<leader>pv', function() local filename = vim.fn.input('New file name: '); if filename ~= '' then vim.cmd('edit ' .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':h') .. '/' .. filename) end end, { desc = "Create a new file in the same directory" })
+
+vim.api.nvim_set_keymap('n', '<leader>x', ':!chmod a+x %<CR>', { noremap = true, silent = true })
 
