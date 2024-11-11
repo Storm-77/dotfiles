@@ -1,3 +1,4 @@
+[general]
 import = [
     # "/home/mikolaj/.config/alacritty/themes/themes/omni.toml",
     "/home/mikolaj/.config/alacritty/themes/themes/blood_moon.toml"
@@ -33,3 +34,4 @@ decorations = "None"
 [window.padding]
 x = 4
 y = 4
+
