@@ -49,3 +49,10 @@ alias dff="df -h -x tmpfs -x efivarfs"
 alias gcnix="sudo nix-collect-garbage -d"
 
 alias chs="cht --shell"
+
+
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias xz='xz -T $(nproc)'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+

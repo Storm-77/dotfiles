@@ -50,8 +50,6 @@
             - curl
             - wget
             - direnv
-            - zsh-syntax-highlighting
-            - zsh-autosuggestions 
             - p7zip
 
             - chromium
