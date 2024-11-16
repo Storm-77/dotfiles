@@ -15,9 +15,6 @@ alias pacfind="pacman -Qe | fzf"
 alias pacfinda="pacman -Q | fzf"
 alias kernel="uname -sr"
 
-alias ls='lsd --group-dirs first'
-alias lk=/usr/bin/ls
-
 alias pacerror="sudo pacman -Dk"
 alias ncdur="ncdu / --exclude /mnt --exclude /home --exclude /run"
 alias rtop="radeontop -c"
@@ -50,9 +47,14 @@ alias gcnix="sudo nix-collect-garbage -d"
 
 alias chs="cht --shell"
 
-
-alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias xz='xz -T $(nproc)'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 
+alias lsnap="sudo timeshift --list"
+alias rmsnap="sudo timeshift --delete"
+alias usesnap="sudo timeshift --restore"
+
+#alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+alias guc="git reset --soft HEAD~1"
