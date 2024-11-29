@@ -1,7 +1,7 @@
 [manager]
 linemode = "mtime"
 show_symlink = true
-show_hidden = true
+show_hidden = false
 
 [opener]
 
