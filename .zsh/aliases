@@ -17,7 +17,8 @@ alias pacfinda="pacman -Q | fzf"
 alias kernel="uname -sr"
 
 alias pacerror="sudo pacman -Dk"
-alias ncdur="ncdu / --exclude /mnt --exclude /home --exclude /run"
+alias ncdu="ncdu --color dark"
+alias ncdur="ncdu / --exclude /mnt --exclude /home --exclude /run --exclude /proc"
 alias rtop="radeontop -c"
 
 alias xall="xhost +si:localuser:$USER"
