@@ -1,7 +1,6 @@
 [general]
 import = [
-    # "/home/mikolaj/.config/alacritty/themes/themes/omni.toml",
-    "/home/mikolaj/.config/alacritty/themes/themes/blood_moon.toml"
+    "~/.config/alacritty/themes/themes/blood_moon.toml"
     ]
 
 [env]
