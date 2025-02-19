@@ -23,10 +23,14 @@ image-edit = [
 pdf-edit = [
     { run = 'pdfarranger "$@"', orphan = true, for = "unix" },
 ]
+xournal = [
+    { run = 'xournalpp "$@"', orphan = true, for = "unix" },
+]
+
 
 
 [open]
 prepend_rules = [
 	{ mime = "image/*", use = [ "browser", "image-edit" ] },
-	{ mime = "application/pdf", use = [ "browser", "pdf-edit" ] },
+	{ mime = "application/pdf", use = [ "browser", "pdf-edit", "xournal"] },
 ]   

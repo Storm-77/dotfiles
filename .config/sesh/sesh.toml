@@ -31,5 +31,8 @@ startup_command = "nvim ."
 
 [[session]]
 name = "home_sever"
-startup_command = 'tmux set-option default-command "ssh server" && ssh server'
+startup_command = 'tmux set-option default-command "ssh server" && hvpn && ssh server '
 
+[[session]]
+name = "etc"
+path = "/etc"
