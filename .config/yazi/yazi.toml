@@ -9,7 +9,7 @@ edit = [
 	{ run = 'nvim "$@"', block = true, for = "unix" },
 ]
 play = [
-	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+	{ run = 'mpv "$@"', orphan = false, for = "unix" },
 ]
 open = [
 	{ run = 'xdg-open "$@"', desc = "xdg" },
