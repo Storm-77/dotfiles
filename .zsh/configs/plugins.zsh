@@ -8,3 +8,6 @@ zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled 
 
 # pure prompt
 zinit light sindresorhus/pure
+
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
