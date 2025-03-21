@@ -1,57 +1,75 @@
+@define-color accent #b4befe;
+@define-color txt #b4befe;
+@define-color bg #181825;
+@define-color bg2 #1e1e2e;
+
+
 * {
-    font-family: 'SF Pro Display';
-    font-size: 15px;
-    font-weight: 400;
-}
+    font-family: 'CaskaydiaCove Nerd Font mono';
+    font-size: 14px;
+ }
 
-
-#window {
+ /* Window */
+ window {
     margin: 0px;
-    border: 0.0px solid;
-    border-color: rgb(235, 77, 129);
+    padding: 10px;
     border-radius: 10px;
-    background-color: #4D5AB2;
-    /*background-color: #7D5FA0;*/
-    color:  #f1f1f1;
-}
+    background-color: @bg;
+ }
 
-#input {
-    margin: 15px;
-    background-color: rgb(112, 122, 137);
-    color: rgb(37, 38, 51);
-    border-radius: 25px;
-    border: 2px solid rgb(52, 64, 76);
-}
-
-#scroll {
-    margin-bottom: 15px;
-}
-
-#entry {
-    margin: 0px 15px;
-}
-
-#entry:selected {
-    /*background-color: /*rgb(245, 98, 36);*/
-    background-color: #4DB273;
-    border-radius: 0px;
+ /* Inner Box */
+ #inner-box {
+    margin: 5px;
+    padding: 10px;
     border: none;
-    outline: none;
-}
+    border-radius: 5px;
+    background-color: @bg;
+ }
 
-#entry > box {
-    margin-left: 16px;
-}
+ /* Outer Box */
+ #outer-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: @bg;
+    border-radius: 5px;
+ }
 
-#entry image {
-    padding-right: 10px;
-}
+ /* Scroll */
+ #scroll {
+    margin: 0px;
+    padding: 10px;
+    border: none;
+ }
 
-#colors {
-    color: rgb(37, 38, 51);
-    color: rgb(52, 64, 76);
-    color: rgb(76, 90, 107);
-    color: rgb(112, 122, 137);
-    color: rgb(235, 77, 129);
-    color: rgb(245, 98, 36);
-}
+ /* Input */
+ #input {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    color: @accent;
+    background-color: @bg;
+    border: 2px solid @accent;
+ }
+
+ /* Text */
+ #text {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    color: @txt;
+ }
+
+ /* Selected Entry */
+ #entry:selected {
+   background-color: @bg;
+   outline: 1px solid @accent;
+ }
+
+ #entry:selected #text {
+    color: var @txt;
+    font-weight:bold;
+ }
+ image {
+   margin-left: 10px;
+ }
