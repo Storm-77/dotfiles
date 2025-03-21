@@ -13,8 +13,6 @@ alias lg=lazygit
 alias nv="nvim ."
 alias pacfetch="sudo pacman -Syy"
 alias pacup="sudo pacman -Su"
-alias pacfind="pacman -Qe | fzf"
-alias pacfinda="pacman -Q | fzf"
 alias kernel="uname -sr"
 
 alias pacerror="sudo pacman -Dk"
@@ -28,7 +26,7 @@ alias mrrank="rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist"
 alias mkinitimg="sudo mkinitcpio -p linux"
 alias cfgrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-alias zconfig="source ~/.zshrc"
+alias zsr="source ~/.zshrc"
 alias ..="cd .."
 alias ...="cd ../.."
 alias .=pwd
