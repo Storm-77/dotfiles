@@ -17,3 +17,7 @@ pacrema-recurs(){
 pacfindf(){
     whence -pm '*' | fzf | xargs -o -r pacman -Qo
 }
+
+pacfiles(){
+   pacman -Q | fzf | awk '{print $1}' | xargs -o -r pacman -Ql
+}
