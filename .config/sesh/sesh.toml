@@ -30,9 +30,13 @@ path = "~/.ssh"
 startup_command = "nvim ."
 
 [[session]]
-name = "home_sever"
-startup_command = 'tmux set-option default-command "ssh server" && hvpn && ssh server '
+name = "_costlinker"
+startup_command = 'tmux set-option default-command "ssh costlinker" && ssh costlinker'
 
 [[session]]
 name = "etc"
 path = "/etc"
+
+[[session]]
+name = "_home"
+startup_command = 'tmux set-option default-command "ssh server" && hvpn && ssh server '

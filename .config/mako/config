@@ -1,96 +1,69 @@
 # GLOBAL
-#sort=+time
-layer=overlay
+max-history=100
+sort=-time
 
-# STYLE
-font=Proxima Nova 11.2
-width=220
-margin=5,18,0
-padding=7
-border-size=1
+# BINDING OPTIONS
+on-button-left=dismiss
+on-button-middle=none
+on-button-right=dismiss-all
+on-touch=dismiss
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
+
+# STYLE OPTIONS
+font="Fantasque Sans Mono", 12
+width=300
+height=100
+margin=10
+padding=15
+border-size=2
 border-radius=10
-progress-color=#ffffff
-max-icon-size=36
-icon-path=/usr/share/icons/WhiteSur-dark:/usr/share/icons/WhiteSur:/usr/share/icons/Adwaita:/usr/share/icons/hicolor
-icon-location=right
-format=<b>%s</b>\n%b
-text-alignment=left
-anchor=top-right
+icons=1
+max-icon-size=48
+icon-location=left
+markup=1
+actions=1
+history=1
+text-alignment=center
+default-timeout=5000
+ignore-timeout=0
+max-visible=5
+layer=overlay
+anchor=top-center
 
-# CRITERA
-## urgency
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#cba6f7
+progress-color=over #89b4fa
+
 [urgency=low]
-default-timeout=2500
-background-color=#000000
-border-color=#2D2D2D
-text-color=#ffffff
+border-color=#313244
+default-timeout=2000
 
 [urgency=normal]
-default-timeout=8000
-background-color=#4DB273
-border-color=#565656
-text-color=#ffffff
-on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message-new-instant.oga
+border-color=#cba6f7
+default-timeout=5000
 
-[urgency=critical]
+[urgency=high]
+border-color=#f38ba8
+text-color=#f38ba8
 default-timeout=0
-background-color=#C20618
-border-color=#D70015
-text-color=#ffffff
-on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/dialog-warning.oga
 
-## app-name
-[app-name=Pomodoro]
-anchor=top-center
-format=%s\n%b
-group-by=app-name
-default-timeout=1000
-on-notify=exec echo hello
-
-[app-name=Geary]
-format=Geary\n%s: %b
-
-[app-name=control]
-format=<b>%s</b>\n%b
-group-by=summary
-anchor=top-center
-text-alignment=center
-
-[app-name=batsignal]
-format=<b>%s</b>\n%b
-group-by=app-name
-
-[app-name=udiskie]
-default-timeout=2500
-
-## body
-[body=""]
-format=%s\n%b
-
-[app-name=workspace_change]
-default-timeout=800
-background-color=#4DB273
-
-[app-name=workspace_notify]
-default-timeout=800
-background-color=#4D5AB2
-
-[app-name=screenshot]
+[category=mpd]
+border-color=#f9e2af
 default-timeout=2000
-background-color=#5045a5
+group-by=category
 
 [app-name=clock]
 default-timeout=1500
-font=SF Pro Display
-background-color=#4D5AB2
-border-color=#B24D8C
 anchor=center
-margin=0,0,300
 
 [app-name=brightness]
-default-timeout=800
-background-color=#33FF33
+default-timeout=1000
+anchor=center
 
-[app-name=battery]
-default-timeout=1500
-background-color=#649ee0
+[app-name=power-profile]
+default-timeout=1000
+progress-color=#46BE8A
+anchor=center
+width=300
+font="Fantasque Sans Mono", 16

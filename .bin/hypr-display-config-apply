@@ -1,0 +1,20 @@
+#!/bin/bash
+
+input=~/.config/hypr/monitors.conf
+
+
+if [ ! -e "$input" ]; then
+    echo "File does not exist."
+    exit 1
+fi
+
+while IFS= read -r line
+do
+  # Check if the line is not blank
+  if [ -n "$line" ]; then
+      command=$(echo $line | sed 's/=/ /g' ) 
+    echo $command
+
+    hyprctl keyword "$command"
+  fi
+done < "$input"

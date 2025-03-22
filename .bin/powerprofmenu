@@ -1,0 +1,15 @@
+#! /bin/sh
+
+chosen=$(printf "󰾆  Power save\n󰾅  Balanced\n󰓅  Performance" | wofi --show dmenu --lines 5 --prompt "Profile" -W 200)
+icon=~/.config/mako/icons/ok.png
+value=0
+
+case "$chosen" in
+	"󰾆  Power save") powerprofilesctl set power-saver && value=30 ;;
+	"󰾅  Balanced") powerprofilesctl set balanced && value=60;;
+	"󰓅  Performance") powerprofilesctl set performance && value=100;;
+	*) exit 1 ;;
+esac
+
+notify-send -a power-profile -h int:value:$value "power-profile: $(powerprofilesctl get)"
+
