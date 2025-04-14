@@ -1,0 +1,8 @@
+#! /bin/sh
+
+selected=$(hyprctl clients -j | jq -r '.[].title' | wofi --dmenu --matching=fuzzy --prompt="Find a window")
+
+hyprctl clients -j | jq --arg sel "$selected" '.[] | select(.title == $sel) | .workspace | .id ' | xargs -r hyprctl dispatch workspace
+
+
+

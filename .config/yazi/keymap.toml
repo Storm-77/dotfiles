@@ -1,0 +1,9 @@
+[[manager.prepend_keymap]]
+on   = "<C-p>"
+run  = "shell 'dolphin . > /dev/null 2>&1 &'"
+desc = "Run dolphin gui"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "d" ]
+run  = "cd ~/Downloads"
+desc = "Cd to ~/Downloads"
