@@ -12,9 +12,33 @@
         update_cache: true
       become: true
 
+    - name: Ensure directory exists
+      ansible.builtin.file:
+        path: ~/Pictures/scr
+
+    - name: Ensure directory exists
+      ansible.builtin.file:
+        path: ~/Pictures/wallpapers
+
     - name: Install packages from official repos
       become: true
       pacman:
           name:  
             - hyprland
             - wofi
+            - swaybg
+            - azote
+            - wl-clipboard
+            - cliphist
+            - grim
+            - swappy
+            - slurp
+            - converseen
+            - procps-ng
+            - mako
+            - brightnessctl
+            - acpi # battery power
+
+            # - python-psutil
+            # - nwg-shell-config
+
