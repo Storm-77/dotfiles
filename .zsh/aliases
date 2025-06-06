@@ -17,7 +17,8 @@ alias kernel="uname -sr"
 
 alias pacerror="sudo pacman -Dk"
 alias ncdu="ncdu --color dark"
-alias ncdur="ncdu / --exclude /mnt --exclude /home --exclude /run --exclude /proc"
+alias ncdur="ncdu / --exclude /mnt --exclude /run --exclude /proc"
+alias ncduro="ncdu / --exclude /mnt --exclude /home --exclude /run --exclude /proc"
 alias rtop="radeontop -c"
 
 alias xall="xhost +si:localuser:$USER"
@@ -44,7 +45,7 @@ alias cpv="rsync -avh --info=progress2"
 
 alias myip="curl ifconfig.me"
 alias dff="df -h -x tmpfs -x efivarfs"
-alias gcnix="sudo nix-collect-garbage -d"
+alias gcnix="nix-collect-garbage -d"
 
 alias chs="cht --shell"
 
