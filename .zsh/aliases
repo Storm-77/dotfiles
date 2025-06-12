@@ -60,3 +60,6 @@ alias usesnap="sudo timeshift --restore"
 #alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
 alias guc="git reset --soft HEAD~1"
+
+alias rmtmp="sudo systemd-tmpfiles --clean && sudo journalctl --vacuum-time=7d"
+alias batstat="sudo tlp-stat -b"

@@ -5,6 +5,6 @@ if pgrep -x "wlsunset" > /dev/null; then
     # If running, kill the process
     pkill -9 "wlsunset"
 else
-    wlsunset -l 52.0 -L 20.0 -t 3000 -d 450 &
+    wlsunset -l 52.0 -L 20.0 -t 2800 -d 450 &
 fi
 
