@@ -41,7 +41,7 @@ _load_settings "$HOME/.zsh/configs"
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # aliases
-[[ -f ~/.zsh/aliases ]] && source ~/.zsh/aliases
+[[ -f ~/.zsh/aliases.sh ]] && source ~/.zsh/aliases.sh
 
 bindkey -v # vim keys
 

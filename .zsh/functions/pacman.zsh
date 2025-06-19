@@ -18,7 +18,7 @@ pacrem(){
             echo "\tAvailable flags: (only first takes effect)"
             echo "\t-h\tdisplay help and exit"
             echo "\t-r\tuse recursive mode, uninstall package dependencies and all packages that depend on this package"
-            echo "\t-a\tall packaes mode, lists packages installed as dependencies as well as explicitly installed packages"
+            echo "\t-a\tall packages mode, lists packages installed as dependencies as well as explicitly installed packages"
             echo "\n\tWhen no arguments provided default mode lists explicitly installed packages"
             break
           ;;
@@ -55,3 +55,17 @@ pacfind(){
 pacfiles(){
    pacman -Q | fzf | awk '{print $1}' | xargs -o -r pacman -Ql
 }
+
+pacinfo(){
+	pacman -Qq | fzf --preview "pacman -Qi {}" --preview-window=right,65%\
+    --no-sort --no-multi --border-label 'Package info' --prompt '⚡ ' \
+    --header $'  (S)pactree (D)everse pactree (F)pacman info\n  (W)All (E)explicitly installed  
+        ' \
+    --bind 'tab:down,btab:up' \
+    --bind 'ctrl-w:reload(pacman -Qq)' \
+    --bind 'ctrl-e:reload(pacman -Qqe)' \
+    --bind 'ctrl-f:preview(pacman -Qi {})' \
+    --bind 'ctrl-s:preview(pactree -d 2 {})' \
+    --bind 'ctrl-d:preview(pactree -d 3 -r {})' \
+}
+

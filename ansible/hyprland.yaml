@@ -40,6 +40,7 @@
             - acpi # battery power
             - nm-connection-editor
             - pavucontrol
+            - xdg-desktop-portal-hyprland
 
             # ashell bar and dependencies
     

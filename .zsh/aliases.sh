@@ -5,8 +5,6 @@ alias ryay="yay -Sc"
 alias lsaur="pacman -Qm"
 alias pacorph="pacman -Qtdq"
 alias pacorphrm="pacorph | sudo pacman -Rns -"
-alias pacinfo='pacman -Qq | fzf --preview "pacman -Qi {}" --preview-window=right:70%:wrap '
-alias pacinfoe='pacman -Qqe | fzf --preview "pacman -Qi {}" --preview-window=right:70%:wrap '
 alias cat=bat
 alias grep=rg
 alias lg=lazygit
