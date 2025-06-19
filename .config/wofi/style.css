@@ -1,75 +1,80 @@
-@define-color accent #b4befe;
-@define-color txt #b4befe;
-@define-color bg #181825;
-@define-color bg2 #1e1e2e;
+/*   _ _ _ _____ _____ _ 
+    | | | |     |   __|_|
+    | | | |  |  |   __| |
+    |_____|_____|__|  |_|  STYLE
+    
+    by Bina
+*/
 
 
-* {
-    font-family: 'CaskaydiaCove Nerd Font mono';
-    font-size: 18px;
- }
+@import ".cache/wal/colors-waybar.css";
 
- /* Window */
- window {
-    margin: 0px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: @bg;
- }
+*{
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
 
- /* Inner Box */
- #inner-box {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: @bg;
- }
+window {
+  font-size: 14px;
+  font-family: "JetBrains Mono";
+  background-color: @background;
+  border-radius: 8px;
+  opacity: 0.90;
+}
 
- /* Outer Box */
- #outer-box {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    background-color: @bg;
-    border-radius: 5px;
- }
+#outer-box {
+  margin: 10px 10px 20px 10px;
+  background-color: @background;
+  opacity: 0.90;
+}
 
- /* Scroll */
- #scroll {
-    margin: 0px;
-    padding: 10px;
-    border: none;
- }
+#inner-box {
+  margin: 10px;
+  background-color: @background;
+  opacity: 0.90;
+}
 
- /* Input */
- #input {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    color: @accent;
-    background-color: @bg;
-    border: 2px solid @accent;
- }
+#entry {
+  padding: 5px 10px;
+  font-size: 15px;
+  border-radius: 20px;
+}
 
- /* Text */
- #text {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    color: @txt;
- }
+#entry #text {
+  padding: 0px 0px 0px 10px;
+  font-weight: normal;
+  color: @color7;
+}
 
- /* Selected Entry */
- #entry:selected {
-   background-color: @bg;
-   outline: 1px solid @accent;
- }
+#entry:selected {
+  background-color: @color4;
+}
 
- #entry:selected #text {
-    color: var @txt;
-    font-weight:bold;
- }
- image {
-   margin-left: 10px;
- }
+#text:selected {
+    color: @color0;
+}
+
+#entry:selected #text {
+  padding: 0px 0px 0px 10px;
+  font-weight: normal;
+  color: @color0;
+}
+
+#input {
+  background: transparent;
+  margin: 0px 5px 0px 20px;
+  color: @color7;
+  padding: 5px;
+}
+
+#image {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#scroll {
+  margin: 0px;
+}
+
+

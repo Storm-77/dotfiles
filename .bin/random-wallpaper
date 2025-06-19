@@ -1,19 +1,10 @@
 #!/bin/bash
 
+wal -i $WALLPAPER_DIR
 
-array=()
-image_value="qqq"
+tmux source-file ~/.tmux.conf
 
-while read -r monitor_name; do
-    PICS=($(ls ${WALLPAPER_DIR}))
-    random_picture=${PICS[ $RANDOM % ${#PICS[@]} ]}
-    mmm="{\"monitor\": \"$monitor_name\", \"image\": \"$random_picture\"}"
-    array+=("$mmm")
-done < <(hyprctl -j monitors | jq -r '.[] | .name')
+# reload kitty config
+kill -SIGUSR1 $(pgrep kitty)
 
-objects=$(IFS=,; echo "${array[*]}")
-array_string=$(echo "[$objects]")
 
-json_array_clean=$(echo "$array_string" | jq -r '.' --indent 4)
-echo $json_array_clean > $HOME/.wallpaper.json
-exec set-wallpaper

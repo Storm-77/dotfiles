@@ -48,3 +48,5 @@ bindkey -v # vim keys
 for bind in ~/.zsh/binds/*; do
     source $bind
 done
+
+[[ -f ~/.cache/wal/colors.sh ]] && source ~/.cache/wal/colors.sh

@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# https://github.com/JaKooLit/Ja_HyprLanD-dots/blob/main/config/hypr/scripts/brightness
+
+iDIR="$HOME/.config/mako/icons"
+
+get_volume() {
+    echo $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | tr -d '[:space:]')
+}
+
+# Get icons
+get_icon() {
+    icon="$iDIR/volume-mute.png"
+	current=$(get_volume | sed 's/%//')
+	if   [ "$current" -le "20" ]; then
+		icon="$iDIR/volume-low.png"
+	elif [ "$current" -le "40" ]; then
+		icon="$iDIR/volume-mid.png"
+	elif [ "$current" -le "60" ]; then
+		icon="$iDIR/volume-mid.png"
+	elif [ "$current" -le "80" ]; then
+		icon="$iDIR/volume-high.png"
+	else
+		icon="$iDIR/volume-high.png"
+	fi
+}
+
+notify_user() {
+	notify-send -a brightness -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Volume: $current%"
+}
+
+mute(){
+    if [ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "yes" ]; then
+        pactl set-sink-mute @DEFAULT_SINK@ toggle && get_icon && notify_user
+    else
+        icon="$iDIR/volume-mute.png"
+        current=0
+        pactl set-sink-mute @DEFAULT_SINK@ toggle && notify_user 
+    fi
+
+}
+
+# Execute accordingly
+case "$1" in
+	"--get")
+		;;
+	"--inc")
+        pactl set-sink-volume @DEFAULT_SINK@ +5% && get_icon && notify_user
+		;;
+	"--dec")
+        pactl set-sink-volume @DEFAULT_SINK@ -5% && get_icon && notify_user
+		;;
+	"--mute")
+        mute
+		;;
+	*)
+        if [[ "$1" =~ ^[0-9]+$ ]]; then
+            pactl set-sink-volume @DEFAULT_SINK@ $1% && get_icon && notify_user
+        else
+            get_volume
+        fi
+		;;
+esac

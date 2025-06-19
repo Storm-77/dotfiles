@@ -27,7 +27,6 @@
             - hyprland
             - wofi
             - swaybg
-            - azote
             - wl-clipboard
             - wlsunset
             - cliphist
@@ -39,7 +38,17 @@
             - mako
             - brightnessctl
             - acpi # battery power
+            - nm-connection-editor
+            - pavucontrol
 
-            # - python-psutil
-            # - nwg-shell-config
+            # ashell bar and dependencies
+    
+             
+    - name: install programs from aur
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - ashell
+          - python-pywal16
+
 
