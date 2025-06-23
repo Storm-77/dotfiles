@@ -59,13 +59,14 @@ pacfiles(){
 pacinfo(){
 	pacman -Qq | fzf --preview "pacman -Qi {}" --preview-window=right,65%\
     --no-sort --no-multi --border-label 'Package info' --prompt '⚡ ' \
-    --header $'  (S)pactree (D)everse pactree (F)pacman info\n  (W)All (E)explicitly installed  
+    --header $'  (S)pactree (D)everse pactree (F)pacman info\n  (R)binaries provided (W)All (E)explicitly installed  
         ' \
     --bind 'tab:down,btab:up' \
     --bind 'ctrl-w:reload(pacman -Qq)' \
     --bind 'ctrl-e:reload(pacman -Qqe)' \
-    --bind 'ctrl-f:preview(pacman -Qi {})' \
     --bind 'ctrl-s:preview(pactree -d 2 {})' \
     --bind 'ctrl-d:preview(pactree -d 3 -r {})' \
+    --bind 'ctrl-f:preview(pacman -Qi {})' \
+    --bind 'ctrl-r:preview(pacman -Ql {} | grep "/bin/")' \
 }
 
