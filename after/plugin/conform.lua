@@ -8,13 +8,23 @@ conform.setup({
         -- Use a sub-list to run only the first available formatter
         javascript = { { "prettierd", "prettier" } },
         astro = { { "prettierd", "prettier" } },
-        c = { "clang_format" },
-        cpp = { "clang_format" },
-        objc = { "clang_format" },
-        objcpp = { "clang_format" },
+        c = { "clangformat" },
+        cpp = { "clangformat" },
+        objc = { "clangformat" },
+        objcpp = { "clangformat" },
         cuda = { "clang_format" },
         proto = { "clang_format" },
+        html = {
+            formatters = { "prettier", "prettierd" },
+            stop_after_first = true
+        },
     },
+    formatters = {
+        -- clangformat = {
+        --
+        --   prepend_args = { "-style=Microsoft" },
+        -- },
+  },
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
@@ -23,3 +33,15 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
         async = true
     })
 end)
+
+local lspconfig = require("lspconfig")
+
+lspconfig.clangd.setup({
+  capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  settings = {
+    clangd = {
+      formatStyle = "Microsoft",
+    },
+  },
+})
+

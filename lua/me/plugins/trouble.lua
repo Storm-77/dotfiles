@@ -8,12 +8,12 @@ return {
     },
     keys = {
         {
-            "<leader>xx",
+            "<leader>Z",
             "<cmd>Trouble diagnostics toggle<cr>",
             desc = "Diagnostics (Trouble)",
         },
         {
-            "<leader>xX",
+            "<leader>z",
             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
             desc = "Buffer Diagnostics (Trouble)",
         },
