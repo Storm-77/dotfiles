@@ -54,6 +54,8 @@
 
             - chromium
             - mpv
+            - tree
+            - pacman-contrid
           state: present
 
     - name: Install fonts from official repos

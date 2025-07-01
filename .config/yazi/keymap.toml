@@ -7,3 +7,14 @@ desc = "Run dolphin gui"
 on   = [ "g", "d" ]
 run  = "cd ~/Downloads"
 desc = "Cd to ~/Downloads"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "." ]
+run  = "cd ~/.dotfiles"
+desc = "Go to dotfiles repo"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "a" ]
+run  = "cd ~/.cache"
+desc = "Go to cache dir"
+
