@@ -1,6 +1,8 @@
 
 vmtui(){
 
+    sudo -v &&
+    sudo systemctl start libvirtd &&
     sudo virsh list --all --name | fzf \
         --header '  (S)tart (D)connect (X)show all (Z)show running' \
         --bind 'ctrl-d:execute(nohup virt-manager --connect qemu:///system --show-domain-console {} >/dev/null 2>&1 &)+abort' \

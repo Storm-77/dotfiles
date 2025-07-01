@@ -20,7 +20,7 @@ alias ncduro="ncdu / --exclude /mnt --exclude /home --exclude /run --exclude /pr
 alias rtop="radeontop -c"
 
 alias xall="xhost +si:localuser:$USER"
-alias mrrank="rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist"
+alias mrrank="sudo -v && rate-mirrors arch | sudo tee /etc/pacman.d/mirrorlist"
 
 alias mkinitimg="sudo mkinitcpio -p linux"
 alias cfgrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
