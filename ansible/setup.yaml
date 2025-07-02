@@ -28,34 +28,13 @@
       become: true
       pacman:
           name: 
-            - zoxide
-            - neovim
-            - tmux
-            - fd
-            - bat
             - htop
             - timeshift
-            - stow
-            - git
-            - base-devel
-            - fzf
-            - ripgrep
-            - lazygit
-            - fastfetch
-            - lsd
             - kitty
-            - yazi
             - ncdu
-            - unp
-            - curl
-            - wget
-            - direnv
-            - 7zip
 
             - chromium
             - mpv
-            - tree
-            - pacman-contrid
           state: present
 
     - name: Install fonts from official repos

@@ -1,8 +1,8 @@
 zoxide
 tmux
 neovim
-fd  
 bat
+fd
 git
 stow
 base-devel
@@ -18,5 +18,7 @@ wget
 7zip
 direnv
 tree
-pacman-contrid
- 
+pacman-contrib
+vim
+vi
+zsh
