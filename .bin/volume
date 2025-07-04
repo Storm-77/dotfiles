@@ -43,11 +43,18 @@ mute(){
 # Execute accordingly
 case "$1" in
 	"--get")
+        get_volume
 		;;
 	"--inc")
+        if [ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "yes" ]; then
+            pactl set-sink-mute @DEFAULT_SINK@ toggle
+        fi
         pactl set-sink-volume @DEFAULT_SINK@ +5% && get_icon && notify_user
 		;;
 	"--dec")
+        if [ "$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')" = "yes" ]; then
+            pactl set-sink-mute @DEFAULT_SINK@ toggle
+        fi
         pactl set-sink-volume @DEFAULT_SINK@ -5% && get_icon && notify_user
 		;;
 	"--mute")
