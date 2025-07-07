@@ -34,7 +34,7 @@ pacrem(){
             break
           ;;
         \?)
-            echo "Unknown flag see: [pacrem -h]"
+            echo "Unknown flag see: [$0 -h]"
             break
             ;;
         :)

@@ -1,49 +1,147 @@
-#! /bin/bash
+#! /bin/sh
 
-if source $HOME/.wksconfig > /dev/null 2>&1 ; then
+WKS_GROUP_INFO_FILE="${HOME}/.wksconfig"
+
+help(){
+    cat <<EOF
+workspace, mini utility to manage workspaces on hyprland
+
+    Available flags: (only first takes effect)
+    -h  display help and exit
+    -s  switch to given workspace inside current group 
+            takes workspace number as argument 
+    -m  move active window to given workspace and switch
+    -g  switch group and active workspace
+            takes workspace group as argument
+EOF
+}
+
+calculate_workspace ()
+{
+    if [[ -z $1 ]]; then
+      return 1
+      exit 1;
+    else
+      workspace=$1
+    fi
+
+    case "$workspace" in
+      "next")
+        wks=$(hyprctl activeworkspace -j | jq '.id')
+        max_wks=$(( $(( $WKS_PREFIX + 1 )) * 10 ))
+
+        if [[ $wks -lt $max_wks ]]; then
+            workspace=$(($wks + 1))
+        else
+            workspace=$wks
+        fi
+      ;;
+
+      "prev")
+        wks=$(hyprctl activeworkspace -j | jq '.id')
+        wks_min=$(($WKS_PREFIX * 10 + 1))
+        if [[ $wks -gt $wks_min ]]; then
+            workspace=$(($wks - 1))
+        else
+            workspace=$wks
+        fi
+      ;;
+
+      *)
+       workspace=$(($WKS_PREFIX*10+$workspace))
+      ;;
+    esac
+    echo $workspace
+    return 0;
+}
+
+switch(){
+
+    workspace=$1
+        
+    monitor_with_desiered_workspace=$(hyprctl monitors -j | jq --arg num "$workspace" 'map(select(.focused == false and .activeWorkspace.name == $num)) | .[] | .name')
+
+    mon=$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .name')
+    activemonitor=${mon//\"/}
+
+    if [[ ${#monitor_with_desiered_workspace} -ne 0 ]]; then
+      hyprctl dispatch swapactiveworkspaces ${monitor_with_desiered_workspace//\"/} $activemonitor > /dev/null
+    else
+      hyprctl dispatch moveworkspacetomonitor $workspace $activemonitor  > /dev/null 2>&1 && hyprctl dispatch workspace $workspace > /dev/null
+    fi
+
+}
+
+# make sure there is always a wks_config file
+if source $WKS_GROUP_INFO_FILE > /dev/null 2>&1 ; then
   echo # ok, variable sourced
 else
-  echo "WKS_PREFIX=1" > $HOME/.wksconfig
-  WKS_PREFIX=1
+  # set default value of 0
+  echo "WKS_PREFIX=0" > $WKS_GROUP_INFO_FILE
+  WKS_PREFIX=0
 fi
 
-if [[ -z $1 ]]; then
-  echo "Missing workspace number";
-  exit 1;
-else
-  workspace=$1
+# Check if any arguments are provided
+if [ $# -eq 0 ]; then
+    help
 fi
 
-case "$workspace" in
-  "next")
-    wks=$(hyprctl activeworkspace -j | jq '.id')
-    max_wks=$(( $(( $WKS_PREFIX + 1 )) * 10 ))
-    workspace=$(($wks + 1))
-  ;;
 
-  "prev")
-    wks=$(hyprctl activeworkspace -j | jq '.id')
-    wks_min=$(($WKS_PREFIX * 10 + 1))
-    workspace=$(($wks - 1))
-  ;;
+while getopts ":hsmg" opt; do
+  case $opt in
+    h)
+        help
+        break
+      ;;
+    s)
+        workspace=$(calculate_workspace $2)
+        switch $workspace
+        break
+      ;;
+    m)
+        workspace=$(calculate_workspace $2)
+        hyprctl dispatch movetoworkspace $workspace 
+        break
+      ;;
+    g)
+        if [[ -z $2 ]]; then
+            echo "missing argument usage $0 -g <group number>"
+            exit 1;
+        fi
+        target_group=$2
 
-  *)
-   workspace="${WKS_PREFIX}${workspace}"
-  ;;
-esac
+        if [[ $target_group -ge 10 || $target_group -lt 0 ]]; then
+            echo " Argument out of bounds! allowed range: <0,9>"
+            exit 1;
+        fi
+        if [[ $target_group -eq $WKS_PREFIX ]]; then
+            exit 0;
+        fi
 
-workspace_number_parsed=$(("10#$workspace"));
-# get the monitor name where target workspace is focused, if its empty do not swap
-monitor_with_desiered_workspace=$(hyprctl monitors -j | jq --arg num "$workspace_number_parsed" 'map(select(.focused == false and .activeWorkspace.name == $num)) | .[] | .name')
+        wks=$(hyprctl activeworkspace -j | jq '.id')
+        wks_rel_to_group=$(($wks-10*$WKS_PREFIX))
+        target_wks=$(($target_group*10+$wks_rel_to_group))
+        echo "WKS_PREFIX=${target_group}" > $WKS_GROUP_INFO_FILE
+        switch $target_wks
+        
 
-mon=$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .name')
-activemonitor=${mon//\"/}
+        break
+        ;;
+    \?)
+        echo "Unknown flag see: [$0 -h]"
+        break
+        ;;
+    :)
+      echo "Default mode"
+      break
+      ;;
+  esac
+done
 
-if [[ ${#monitor_with_desiered_workspace} -ne 0 ]]; then
-  hyprctl dispatch swapactiveworkspaces ${monitor_with_desiered_workspace//\"/} $activemonitor > /dev/null
-else
-  hyprctl dispatch moveworkspacetomonitor $workspace_number_parsed $activemonitor  > /dev/null 2>&1 && hyprctl dispatch workspace $workspace_number_parsed > /dev/null
-fi
 
-exit 0
 
+# todo
+# address bugs with switching to workspace 20 as workspace 110, (add as number not string)
+# extend with parameters mergeing move-to-workspace script into here
+# switch to desktop when changing set of workspaces
+#
