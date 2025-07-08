@@ -64,9 +64,10 @@ pacinfo(){
     --bind 'tab:down,btab:up' \
     --bind 'ctrl-w:reload(pacman -Qq)' \
     --bind 'ctrl-e:reload(pacman -Qqe)' \
-    --bind 'ctrl-s:preview(pactree -d 2 {})' \
-    --bind 'ctrl-d:preview(pactree -d 3 -r {})' \
-    --bind 'ctrl-f:preview(pacman -Qi {})' \
+    --bind 'ctrl-s:preview(pactree -d 2 {})+change-preview-label(Dependency tree)' \
+    --bind 'ctrl-d:preview(pactree -d 3 -r {})+change-preview-label(Reverse dependency tree)' \
+    --bind 'ctrl-f:preview(pacman -Qi {})+change-preview-label(Basic package info)' \
     --bind 'ctrl-r:preview(pacman -Ql {} | grep "/bin/")' \
+    --bind 'focus:change-preview-label(Basic package info)' \
 }
 
