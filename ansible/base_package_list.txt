@@ -22,3 +22,4 @@ pacman-contrib
 vim
 vi
 zsh
+trash-cli
