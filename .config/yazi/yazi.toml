@@ -29,6 +29,9 @@ xournal = [
 sqlite = [
     { run ='sqlitebrowser "$@"', orphan = false, for = "unix"}
 ]
+libre_calc= [
+    { run ='localc "$@"', orphan = true, for = "unix"}
+]
 
 
 
@@ -36,8 +39,7 @@ sqlite = [
 prepend_rules = [
 	{ mime = "image/*", use = [ "browser", "image-edit" ] },
 	{ mime = "application/pdf", use = [ "browser", "pdf-edit", "xournal" ] },
-	{ name = "*.db", use = [ "sqlite" ] },
-    # { mime = "application/vnd.sqlite3", use = [ "sqlite" ] },
+    { name = "*.db", use = [ "sqlite" ] },
+	{ name = "*.csv", use = [ "libre_calc", "edit" ] },
 ]   
 
-# { name = "*.sqlite", ".sqlite3", ".db", ".db3", ".sdb", ".sl3", ".sqlite2", ".sqlite3", ".db2", ".s2db", ".sl2", use = [ "sqlite" ] },
