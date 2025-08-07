@@ -1,7 +1,5 @@
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
+eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 eval "$(tmuxifier init -)"
