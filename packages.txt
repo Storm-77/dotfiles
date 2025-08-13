@@ -8,5 +8,7 @@ swappy
 mako
 socat
 
+hypridle
+uwsm
 
 

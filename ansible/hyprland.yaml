@@ -41,6 +41,8 @@
             - nm-connection-editor
             - pavucontrol
             - xdg-desktop-portal-hyprland
+            - hypridle
+            - uwsm
 
             # ashell bar and dependencies
     
