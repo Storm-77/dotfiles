@@ -1,7 +1,7 @@
 [[mgr.prepend_keymap]]
 on   = "<C-p>"
-run  = "shell 'dolphin . > /dev/null 2>&1 &'"
-desc = "Run dolphin gui"
+run  = "shell 'nautilus . > /dev/null 2>&1 &'"
+desc = "Run gui file explorer"
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "d" ]
@@ -18,3 +18,7 @@ on   = [ "g", "a" ]
 run  = "cd ~/.cache"
 desc = "Go to cache dir"
 
+[[mgr.prepend_keymap]]
+on   = [ "g", "l" ]
+run  = "cd /mnt/log_wymiana"
+desc = "Go to log mount"

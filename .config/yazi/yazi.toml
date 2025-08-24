@@ -40,6 +40,7 @@ prepend_rules = [
 	{ mime = "image/*", use = [ "browser", "image-edit" ] },
 	{ mime = "application/pdf", use = [ "browser", "pdf-edit", "xournal" ] },
     { name = "*.db", use = [ "sqlite" ] },
+    { name = "*.txt", use = [ "edit" ] },
 	{ name = "*.csv", use = [ "libre_calc", "edit" ] },
 ]   
 
