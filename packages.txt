@@ -4,6 +4,7 @@ slurp
 grim
 wofi
 wl-clipboard
+hyprshot
 swappy
 mako
 socat
