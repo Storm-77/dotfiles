@@ -7,6 +7,11 @@ function handle {
             hyprctl dispatch submap vm
         fi
     fi
+    if [[ ${1:14:19} == "org.remmina.Remmina" ]]; then
+        if [[ ${1:34} != *"Remmina Remote Desktop Client"* ]]; then
+            hyprctl dispatch submap vm
+        fi
+    fi
   fi
 }
 

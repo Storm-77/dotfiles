@@ -1,4 +1,4 @@
-# import = ["~/sesh.local.toml"]
+import = ["~/sesh.local.toml"]
 
 [[session]]
 name = "Downloads 📥"

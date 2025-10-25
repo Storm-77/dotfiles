@@ -61,3 +61,7 @@ alias guc="git reset --soft HEAD~1"
 
 alias rmtmp="sudo systemd-tmpfiles --clean && sudo journalctl --vacuum-time=7d"
 alias batstat="sudo tlp-stat -b"
+
+alias lsb=$(which lsblk)
+alias lsblk="lsblk | bat -l conf -p"
+
