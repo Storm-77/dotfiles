@@ -4,6 +4,11 @@ run  = "shell 'nautilus . > /dev/null 2>&1 &'"
 desc = "Run gui file explorer"
 
 [[mgr.prepend_keymap]]
+on   = "<C-s>"
+run  = "shell 'sesh connect .'" 
+desc = "Attach sesh to opened directory"
+
+[[mgr.prepend_keymap]]
 on   = [ "g", "d" ]
 run  = "cd ~/Downloads"
 desc = "Cd to ~/Downloads"

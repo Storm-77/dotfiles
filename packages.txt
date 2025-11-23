@@ -8,6 +8,7 @@ hyprshot
 swappy
 mako
 socat
+ydotool
 
 hypridle
 uwsm

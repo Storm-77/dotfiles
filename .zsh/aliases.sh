@@ -43,6 +43,7 @@ alias cpv="rsync -avh --info=progress2"
 
 alias myip="curl ifconfig.me"
 alias dff="df -h -x tmpfs -x efivarfs"
+alias dfr="df -h /" 
 alias gcnix="nix-collect-garbage -d"
 
 alias chs="cht --shell"
