@@ -13,7 +13,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- vim.keymap.set({ "v" }, "<C-c>", [["+Y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
@@ -24,10 +24,7 @@ vim.api.nvim_set_keymap('n', '<leader>q', ':b#<CR>', { noremap = true, silent = 
 
 vim.api.nvim_set_keymap('n', '<S-U>', '<Cmd>redo<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('i', '<C-c>', '<Esc>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-c>', '<Esc>', { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
 local add_to_git = function()
     local relPath = vim.fn.expand('%:p') -- Get the absolute path of the current file
@@ -40,13 +37,13 @@ vim.keymap.set({ "n" }, "<leader>g", add_to_git)
 
 vim.keymap.set('n', '<leader>pv',
     function()
-        local filename = vim.fn.input('New file name: '); if filename ~= '' then vim.cmd('edit ' ..
-            vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':h') .. '/' .. filename) end
+        local filename = vim.fn.input('New file name: '); if filename ~= '' then
+            vim.cmd('edit ' ..
+                vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':h') .. '/' .. filename)
+        end
     end, { desc = "Create a new file in the same directory" })
 
 vim.api.nvim_set_keymap('n', '<leader>x', ':!chmod a+x %<CR>', { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap('i', '<Esc>', '<Esc>:Telescope actions.close<CR>', { noremap = true, silent = true })
 
 -- Remap Ctrl+a for pane navigation in Neovim
 local opts = { noremap = true, silent = true }

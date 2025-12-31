@@ -16,6 +16,9 @@ local on_attach = function()
     vim.keymap.set("n", "R", vim.lsp.buf.rename, {})
 end
 
+local omnisharp_bin = vim.fn.stdpath("data") .. "/mason/bin/OmniSharp"
+local pid = vim.fn.getpid()
+
 require("mason-lspconfig").setup_handlers {
 
     function(server_name) -- handler for every server
@@ -45,5 +48,13 @@ require("mason-lspconfig").setup_handlers {
                 }
             }
         }
-    end
+    end,
+
+    ["omnisharp"] = function()
+        require("lspconfig").omnisharp.setup {
+            on_attach = on_attach,
+            cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+        }
+    end,
+
 }

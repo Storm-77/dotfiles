@@ -14,17 +14,27 @@ conform.setup({
         objcpp = { "clangformat" },
         cuda = { "clang_format" },
         proto = { "clang_format" },
+        sql = { "pg_format" },
         html = {
             formatters = { "prettier", "prettierd" },
             stop_after_first = true
         },
     },
     formatters = {
+        pg_format = {
+            command = "pg_format",
+            args = {
+                "--spaces", "4",
+                "-t"
+            },
+            stdin = true,
+        },
         -- clangformat = {
         --
         --   prepend_args = { "-style=Microsoft" },
         -- },
-  },
+        --
+    },
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
@@ -37,11 +47,10 @@ end)
 local lspconfig = require("lspconfig")
 
 lspconfig.clangd.setup({
-  capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  settings = {
-    clangd = {
-      formatStyle = "Microsoft",
+    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    settings = {
+        clangd = {
+            formatStyle = "Microsoft",
+        },
     },
-  },
 })
-

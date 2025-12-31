@@ -1,4 +1,5 @@
-local builtin = require('telescope.builtin')
+local builtin = require('telescope.builtin');
+local telescope = require("telescope");
 
 local ignore_patterns = { '.git/', 'node_modules' };
 
@@ -36,11 +37,20 @@ vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
 
 vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
 
-local harpoon = require("telescope").load_extension("harpoon")
+local actions = require("telescope.actions")
+telescope.setup({
+    defaults = {
+        mappings = {
+            i = { ["<esc>"] = actions.close },
+        },
+    },
+})
+
+local harpoon = telescope.load_extension("harpoon")
 
 vim.keymap.set('n', '<leader>ph', harpoon.marks, {})
 
-local worktree = require("telescope").load_extension("git_worktree")
+local worktree = telescope.load_extension("git_worktree")
 
 vim.keymap.set('n', '<leader>pe', worktree.git_worktrees, {})
 vim.keymap.set('n', '<leader>pn', worktree.create_git_worktree, {})
