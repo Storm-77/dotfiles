@@ -1,7 +1,7 @@
 require("mason").setup();
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "ts_ls", "clangd", "volar", "emmet_ls" }
+    ensure_installed = { "lua_ls", "ts_ls", "clangd", "emmet_ls" }
 });
 
 local on_attach = function()
@@ -19,42 +19,39 @@ end
 local omnisharp_bin = vim.fn.stdpath("data") .. "/mason/bin/OmniSharp"
 local pid = vim.fn.getpid()
 
-require("mason-lspconfig").setup_handlers {
+local cust_mapping = {
+    ["emmet_ls"] = {
+        on_attach = on_attach,
+        filetypes = { "html", "css", "php" },
+    }
+    ,
 
-    function(server_name) -- handler for every server
-        require("lspconfig")[server_name].setup {
-            on_attach = on_attach
-        }
-    end,
-
-    ["emmet_ls"] = function()
-        require("lspconfig").emmet_ls.setup {
-            on_attach = on_attach,
-            filetypes = { "html", "css", "php" },
-        }
-    end,
-
-    ["intelephense"] = function()
-        require("lspconfig").intelephense.setup {
-            on_attach = on_attach,
-            settings = {
-                intelephense = {
-                    stubs = {
-                        'wordpress',
-                    },
-                    environment = {
-                        includePaths = '$HOME/.config/composer/vendor/php-stubs/'
-                    }
+    ["intelephense"] = {
+        on_attach = on_attach,
+        settings = {
+            intelephense = {
+                stubs = {
+                    'wordpress',
+                },
+                environment = {
+                    includePaths = '$HOME/.config/composer/vendor/php-stubs/'
                 }
             }
         }
-    end,
+    }
+    ,
 
-    ["omnisharp"] = function()
-        require("lspconfig").omnisharp.setup {
-            on_attach = on_attach,
-            cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
-        }
-    end,
-
+    ["omnisharp"] = {
+        on_attach = on_attach,
+        cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+    }
 }
+
+local servers = require("mason-lspconfig").get_available_servers()
+for _, server in ipairs(servers) do
+    vim.lsp.config(server, { on_attach = on_attach })
+end
+
+for serv_name, serv_config in pairs(cust_mapping) do
+    vim.lsp.config(serv_name, serv_config)
+end

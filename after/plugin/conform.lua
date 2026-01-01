@@ -44,13 +44,12 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
     })
 end)
 
-local lspconfig = require("lspconfig")
-
-lspconfig.clangd.setup({
+vim.lsp.config('clangd', {
     capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     settings = {
         clangd = {
             formatStyle = "Microsoft",
         },
     },
-})
+});
+vim.lsp.enable('clangd');
