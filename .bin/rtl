@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Toggle Wi-Fi radio on/off using nmcli
+STATUS=$(nmcli radio wifi)
+
+if echo "$STATUS" | grep -q "enabled"; then
+    nmcli radio wifi off
+    echo "Wi-Fi radio disabled."
+else
+    nmcli radio wifi on
+    echo "Wi-Fi radio enabled."
+fi
+

@@ -1,4 +1,5 @@
 # load completion scripts
+source ~/.profile
 fpath=(~/.zsh/completions $fpath)
 
 # load custom executable functions

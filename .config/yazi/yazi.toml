@@ -39,8 +39,8 @@ libre_calc= [
 prepend_rules = [
 	{ mime = "image/*", use = [ "browser", "image-edit" ] },
 	{ mime = "application/pdf", use = [ "browser", "pdf-edit", "xournal" ] },
-    { name = "*.db", use = [ "sqlite" ] },
-    { name = "*.txt", use = [ "edit" ] },
-	{ name = "*.csv", use = [ "libre_calc", "edit" ] },
+    { url = "*.db", use = [ "sqlite" ] },
+    { url = "*.txt", use = [ "edit" ] },
+	{ url = "*.csv", use = [ "libre_calc", "edit" ] },
 ]   
 
