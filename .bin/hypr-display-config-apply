@@ -15,6 +15,6 @@ do
       command=$(echo $line | sed 's/=/ /g' ) 
     echo $command
 
-    hyprctl keyword "$command"
+    hyprctl eval "$command"
   fi
 done < "$input"
