@@ -1,6 +1,6 @@
 return {
     "seblyng/roslyn.nvim",
-    ft = { "cs", "razor" },
+    ft = { "razor" },
     opts = {
         broad_search = true, -- scans parent/child dirs for .sln files
         -- lock_target = true,  -- sticks to detected solution after first attach

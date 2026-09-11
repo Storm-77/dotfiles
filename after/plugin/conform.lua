@@ -14,6 +14,7 @@ conform.setup({
         objcpp = { "clangformat" },
         cuda = { "clang_format" },
         proto = { "clang_format" },
+        cs = { "csharpier" },
         sql = { "pg_format" },
         html = {
             formatters = { "prettier", "prettierd" },
@@ -26,6 +27,16 @@ conform.setup({
             args = {
                 "--spaces", "4",
                 "-t"
+            },
+            stdin = true,
+        },
+        csharpier = {
+            command = "csharpier",
+            args = {
+                "format",
+                "--stdin-path", "$FILENAME",
+                "--compilation-errors-as-warnings",
+                "--config-path", vim.fn.stdpath("config") .. "/csharpier.json",
             },
             stdin = true,
         },
