@@ -1,0 +1,7 @@
+#!/usr/bin/env bash                            
+                                               
+for file in ./*.json; do                       
+  jq . "$file" > "${file%.json}-formatted.json"
+  mv -f "${file%.json}-formatted.json" "$file" 
+done                                           
+                                              

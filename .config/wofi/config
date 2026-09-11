@@ -11,4 +11,6 @@ show_all=true
 
 normal_window=true
 no_actions=true
+allow_images=true
 
+close_on_focus_loss=true
