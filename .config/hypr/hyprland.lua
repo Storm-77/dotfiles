@@ -8,15 +8,13 @@ hl.monitor({
     scale = "1.333333"
 })
 
--- hl.monitor({
---     output = "DP-1",
---     mode = "2560x1440@100.0",
---     position = "auto",
---     scale = "1"
--- })
+hl.device({
+    name = "pixart-usb-optical-mouse",
+    sensitivity = -0.3, -- Adjust value between -1.0 and 1.0
+})
 
 hl.monitor({
-    output = "desc:Iiyama North America PL2797Q 12501535C7444",
+    output = "desc:iiyama Corporation PL2797Q 12501535C7444",
     mode = "2560x1440@100.0",
     position = "auto",
     scale = "1"
@@ -31,6 +29,7 @@ hl.monitor({
 
 require('keymap')
 require('workspace_keymap')
+require('vm_event_keymap')
 BindMainKeymapWorkspaceShortcuts()
 
 require('laptop')

@@ -18,24 +18,13 @@ function GlobalWorkspaceShortcutsBind()
         -- move workspace
         hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 
-        -- custom handler to swap workspaces between monitors in case workspace is somewhere else
         hl.bind(mainMod .. " + " .. key, function()
-            -- local targetWorkspace = hl.get_workspace(tostring(i))
-            -- if targetWorkspace == nil or targetWorkspace.monitor == hl.get_active_monitor() or not targetWorkspace.visible then
-                hl.dispatch(
-                    hl.dsp.focus({
-                        workspace = i,
-                        on_current_monitor = true
-                    })
-                )
-            -- else
-            --     hl.dispatch(
-            --         hl.dsp.workspace.swap_monitors({
-            --             monitor1 = hl.get_active_monitor(),
-            --             monitor2 = targetWorkspace.monitor
-            --         })
-            --     )
-            -- end
+            hl.dispatch(
+                hl.dsp.focus({
+                    workspace = i,
+                    on_current_monitor = true
+                })
+            )
         end)
     end
 
@@ -54,8 +43,4 @@ function BindMainKeymapWorkspaceShortcuts()
     -- Example special workspace (scratchpad)
     hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
     hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-end
-
-function BindVmSubmap()
-    hl.define_submap("vm", "reset", GlobalWorkspaceShortcutsBind)
 end

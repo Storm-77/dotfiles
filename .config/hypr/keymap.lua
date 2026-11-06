@@ -12,6 +12,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("hyprctl activewindow | grep pid |tr -d 'pid:' | xargs kill -15"))
 hl.bind(mainMod .. " + SHIFT + ALT + M", hl.dsp.exit())
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("uwsm-app -s a -- " .. apps.webBrowser))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("uwsm-app -s a -- remmina"))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("uwsm-app -s a -- " .. apps.webBrowserSecondary))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("uwsm-app -s a -- " .. apps.webBrowserPrivate))
 hl.bind(mainMod .. " + P",
