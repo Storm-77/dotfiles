@@ -6,31 +6,31 @@ show_hidden = false
 [opener]
 
 edit = [
-	{ run = 'nvim "$@"', block = true, for = "unix" },
+	{ run = 'nvim %s', block = true, for = "unix" },
 ]
 play = [
-	{ run = 'mpv "$@"', orphan = false, for = "unix" },
+	{ run = 'mpv %s', orphan = false, for = "unix" },
 ]
 open = [
-	{ run = 'xdg-open "$@"', desc = "xdg" },
+	{ run = 'xdg-open %s1', desc = "xdg" },
 ]
 browser = [
-    { run = 'librewolf "$@"', orphan = true, for = "unix" },
+    { run = 'librewolf %s', orphan = true, for = "unix" },
 ]
 image-edit = [
-    { run = 'gimp "$@"', orphan = true, for = "unix" },
+    { run = 'gimp %s', orphan = true, for = "unix" },
 ]
 pdf-edit = [
-    { run = 'pdfarranger "$@"', orphan = true, for = "unix" },
+    { run = 'pdfarranger %s', orphan = true, for = "unix" },
 ]
 xournal = [
-    { run = 'xournalpp "$@"', orphan = true, for = "unix" },
+    { run = 'xournalpp %s', orphan = true, for = "unix" },
 ]
 sqlite = [
-    { run ='sqlitebrowser "$@"', orphan = false, for = "unix"}
+    { run ='sqlitebrowser %s', orphan = false, for = "unix"}
 ]
 libre_calc= [
-    { run ='localc "$@"', orphan = true, for = "unix"}
+    { run ='localc %s', orphan = true, for = "unix"}
 ]
 
 
@@ -43,4 +43,3 @@ prepend_rules = [
     { url = "*.txt", use = [ "edit" ] },
 	{ url = "*.csv", use = [ "libre_calc", "edit" ] },
 ]   
-

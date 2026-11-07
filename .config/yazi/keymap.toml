@@ -1,6 +1,6 @@
 [[mgr.prepend_keymap]]
 on   = "<C-p>"
-run  = "shell 'nautilus . > /dev/null 2>&1 &'"
+run  = "shell --orphan -- nautilus ."
 desc = "Run gui file explorer"
 
 [[mgr.prepend_keymap]]
