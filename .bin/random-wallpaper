@@ -5,6 +5,6 @@ wal -i $WALLPAPER_DIR
 tmux source-file ~/.tmux.conf
 
 # reload kitty config
-kill -SIGUSR1 $(pgrep kitty)
+#kill -SIGUSR1 $(pgrep kitty)
 
 

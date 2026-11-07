@@ -1,0 +1,7 @@
+customCommands:
+  - key: 'U'
+    context: 'localBranches'
+    command: 'git fetch origin {{.SelectedLocalBranch.Name}}:{{.SelectedLocalBranch.Name}}'
+    loadingText: 'Fetching and updating selected branch...'
+    description: 'Fetch remote updates directly into this local branch'
+    output: terminal
