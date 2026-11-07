@@ -1,7 +1,11 @@
 -- based on https://github.com/josean-dev/dev-environment-files/blob/main/.config/nvim/lua/josean/plugins/nvim-treesitter-text-objects.lua
 return {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    lazy = true,
+    branch = "master",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+    },
     config = function()
         require("nvim-treesitter.configs").setup({
             textobjects = {

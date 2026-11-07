@@ -5,7 +5,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         require('psql').setup({
-            database_name       = 'dev',
+            database_name       = 'postgres',
             execute_selection   = '<leader>e',
             execute_paragraph   = '<leader>r',
 

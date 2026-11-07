@@ -54,4 +54,7 @@ local opts = { noremap = true, silent = true }
 -- vim.api.nvim_set_keymap('n', '<C-al>', '<C-w>l', opts)
 vim.api.nvim_set_keymap('n', '<C-b>', '<C-w>', opts)
 
+vim.keymap.set('v','<', '<gv')
+vim.keymap.set('v','>', '>gv')
+
 -- install https://github.com/alexghergh/nvim-tmux-navigation

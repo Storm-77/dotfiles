@@ -6,8 +6,8 @@ conform.setup({
         -- Conform will run multiple formatters sequentially
         python = { "isort", "black" },
         -- Use a sub-list to run only the first available formatter
-        javascript = { { "prettierd", "prettier" } },
-        astro = { { "prettierd", "prettier" } },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        astro = { "prettierd", "prettier", stop_after_first = true },
         c = { "clangformat" },
         cpp = { "clangformat" },
         objc = { "clangformat" },
@@ -16,10 +16,7 @@ conform.setup({
         proto = { "clang_format" },
         cs = { "csharpier" },
         sql = { "pg_format" },
-        html = {
-            formatters = { "prettier", "prettierd" },
-            stop_after_first = true
-        },
+        html = { "prettier", "prettierd", stop_after_first = true },
     },
     formatters = {
         pg_format = {
