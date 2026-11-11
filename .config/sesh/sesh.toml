@@ -1,7 +1,7 @@
 import = ["~/sesh.local.toml"]
 
 [[session]]
-name = "Downloads 📥"
+name = "Downloads"
 path = "~/Downloads"
 startup_command="yazi"
 

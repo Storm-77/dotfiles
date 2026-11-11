@@ -24,7 +24,6 @@ hl.bind(mainMod .. " + End", hl.dsp.exec_cmd('powermenu'))
 hl.bind(mainMod .. " + F10", hl.dsp.exec_cmd('powerprofmenu'))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd('D=$(' .. apps.menu .. ') ; [ -n "$D" ] && uwsm app -- "$D"'))
 hl.bind(mainMod .. " + O", hl.dsp.window.float({ action = "toggle" }))
-
 -- # bind = $mainMod, N, togglesplit, # dwindle
 
 -- # Move focus with mainMod + arrow keys
@@ -65,3 +64,12 @@ hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd("select-audio-output"))
 
 hl.bind(mainMod .. "+V", hl.dsp.exec_cmd([[cliphist list | grep -v '\[\[ binary data' |  wofi --dmenu | cliphist decode | wl-copy]]))
 hl.bind(mainMod .. "+CTRL + V", hl.dsp.exec_cmd("cliphist-wofi-img | wl-copy"))
+
+
+-- clipboard typer
+hl.bind(mainMod .. " + equal",
+    hl.dsp.exec_cmd('sleep 1; ydotool type -d 25 "$(wl-paste)"'),
+    { release = true }
+)
+
+hl.bind(mainMod .. " + minus", hl.dsp.exec_cmd("pkill -x ydotool"))

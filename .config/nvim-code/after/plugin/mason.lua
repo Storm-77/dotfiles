@@ -19,6 +19,10 @@ vim.diagnostic.config({
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+local function show_diagnostic(_, bufnr)
+    vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+end
+
 local on_attach = function(_, bufnr)
     local opts = { buffer = bufnr }
 
@@ -30,8 +34,12 @@ local on_attach = function(_, bufnr)
     vim.keymap.set("n", "K", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, opts)
     vim.keymap.set("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "[d", function()
+        vim.diagnostic.jump({ count = -1, on_jump = show_diagnostic })
+    end, opts)
+    vim.keymap.set("n", "]d", function()
+        vim.diagnostic.jump({ count = 1, on_jump = show_diagnostic })
+    end, opts)
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "R", vim.lsp.buf.rename, opts)
 end
