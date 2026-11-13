@@ -66,10 +66,3 @@ hl.bind(mainMod .. "+V", hl.dsp.exec_cmd([[cliphist list | grep -v '\[\[ binary 
 hl.bind(mainMod .. "+CTRL + V", hl.dsp.exec_cmd("cliphist-wofi-img | wl-copy"))
 
 
--- clipboard typer
-hl.bind(mainMod .. " + equal",
-    hl.dsp.exec_cmd('sleep 1; ydotool type -d 25 "$(wl-paste)"'),
-    { release = true }
-)
-
-hl.bind(mainMod .. " + minus", hl.dsp.exec_cmd("pkill -x ydotool"))

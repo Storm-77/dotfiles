@@ -30,6 +30,7 @@
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "5ca4aaa6efdcc59be46b95a3e876300cfead05ef" },
   "nvim-ts-autotag": { "branch": "main", "commit": "88c1453db4ba7dd24131086fe51fdf74e587d275" },
   "nvim-web-devicons": { "branch": "master", "commit": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb" },
+  "opencode.nvim": { "branch": "main", "commit": "4851ae503585dc5142ad66a98e8952a74e1f7b3a" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "psql": { "branch": "main", "commit": "65be77aed3a4ed0538cc1918ebc6b71e3252eacd" },
   "render-markdown.nvim": { "branch": "main", "commit": "f94914e0486466aac53570de084a475e288ec46d" },

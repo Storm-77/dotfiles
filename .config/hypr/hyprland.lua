@@ -30,7 +30,9 @@ hl.monitor({
 require('keymap')
 require('workspace_keymap')
 require('vm_event_keymap')
+require('clipboard_typer_keymap')
 BindMainKeymapWorkspaceShortcuts()
+BindClipboardTyperKeys()
 
 require('laptop')
 require('environment')

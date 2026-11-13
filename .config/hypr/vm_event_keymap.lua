@@ -1,4 +1,5 @@
 require('workspace_keymap')
+require('clipboard_typer_keymap')
 
 local def = require("definitions")
 local mainMod = def.keys.mainMod
@@ -6,6 +7,7 @@ local mainMod = def.keys.mainMod
 function BindVmSubmap()
     hl.define_submap("vm", "reset", function()
         GlobalWorkspaceShortcutsBind()
+        BindClipboardTyperKeys()
     end)
 
     hl.define_submap("vm", function()
